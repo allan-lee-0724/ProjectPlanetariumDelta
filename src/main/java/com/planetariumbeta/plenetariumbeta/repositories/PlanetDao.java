@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.planetariumbeta.plenetariumbeta.entities.Planet;
 
-public interface PlanetDao extends JpaRepository{
+public interface PlanetDao extends JpaRepository<Planet, Integer>{
     
     Optional<Planet> findByPlanetName(String planetName);
 

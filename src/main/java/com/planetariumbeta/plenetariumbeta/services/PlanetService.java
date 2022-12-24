@@ -33,4 +33,23 @@ public class PlanetService {
         }
     }
 
+    public Planet getPlanetById(int myPlanetId){
+        Optional<Planet> possiblePlanet = this.planetDao.findById(myPlanetId);
+        if(possiblePlanet.isPresent()){
+            return possiblePlanet.get();
+        } else{
+            return null;
+        }
+    }
+
+    public String createPlanet(Planet planet){
+        this.planetDao.createPlanet(planet.getPlanetName(), planet.getOwnerId());
+        return "NEW PLANET SUCCESSFULLY CREATED";
+    }
+
+    public String deletePlanetById(int myPlanetId){
+        this.planetDao.deleteById(myPlanetId);
+        return "PLANET SUCCESSFULLY DELETED";
+    }
+
 }
