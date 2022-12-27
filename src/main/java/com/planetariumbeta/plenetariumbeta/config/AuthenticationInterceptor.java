@@ -15,7 +15,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        if(session.getAttribute("user") != null){
+        if(session.getAttribute("username") != null){
             return true;
         } else{
             throw new AuthenticationFailed("PLEASE LOGIN BEFORE INTERACTING WITH APPLICATION");
