@@ -59,22 +59,22 @@ public class PlanetControlller {
         return new ResponseEntity<>(this.planetService.getAllPlanets(), HttpStatus.OK);
     }
 
-    @GetMapping("api/planet/{name}")
+    @GetMapping("api/planet/{planetName}")
     public ResponseEntity<Planet> getPlanetByName(@PathVariable String planetName){
         return new ResponseEntity<>(this.planetService.getPlanetByName(planetName), HttpStatus.OK);
     }
 
-    @GetMapping("api/planet/id/{id}")
+    @GetMapping("api/planet/id/{myPlanetId}")
     public ResponseEntity<Planet> getPlanetById(@PathVariable int myPlanetId){
         return new ResponseEntity<>(this.planetService.getPlanetById(myPlanetId), HttpStatus.OK);
     }
 
-    @PostMapping("api/{ownerid}/planet")
-    public ResponseEntity<String> createPlanet(@RequestBody Planet planet){
+    @PostMapping("api/{ownerId}/planet")
+    public ResponseEntity<String> createPlanet(@RequestBody Planet planet, @PathVariable int ownerId){
         return new ResponseEntity<>(this.planetService.createPlanet(planet), HttpStatus.OK);
     }
 
-    @DeleteMapping("api/planet/{id}")
+    @DeleteMapping("api/planet/{myPlanetId}")
     public ResponseEntity<String> deletePlanetById(@PathVariable int myPlanetId){
         return new ResponseEntity<>(this.planetService.deletePlanetById(myPlanetId), HttpStatus.OK);
     }

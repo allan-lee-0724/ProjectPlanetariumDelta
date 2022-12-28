@@ -13,7 +13,7 @@ import com.planetariumbeta.plenetariumbeta.entities.Planet;
 
 public interface PlanetDao extends JpaRepository<Planet, Integer>{
     
-    Optional<Planet> findByPlanetname(String planetName);
+    Optional<Planet> findByPlanetName(String planetName);
 
     @Transactional
     @Modifying

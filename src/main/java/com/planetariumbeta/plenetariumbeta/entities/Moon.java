@@ -21,7 +21,7 @@ public class Moon {
     @Column(name = "name")
     private String moonName;
 
-    @Column(name = "myplenetid")
+    @Column(name = "myplanetid")
     private int myPlanetId;
 
 }

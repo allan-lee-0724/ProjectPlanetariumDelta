@@ -25,7 +25,7 @@ public class PlanetService {
     }
 
     public Planet getPlanetByName(String planetName){
-        Optional<Planet> possiblePlanet = this.planetDao.findByPlanetname(planetName);
+        Optional<Planet> possiblePlanet = this.planetDao.findByPlanetName(planetName);
         if(possiblePlanet.isPresent()){
             return possiblePlanet.get();
         }else{

@@ -25,7 +25,7 @@ public class MoonService {
     }
 
     public Moon getMoonByName(String moonName){
-        Optional<Moon> possibleMoon = this.moonDao.findByMoonname(moonName);
+        Optional<Moon> possibleMoon = this.moonDao.findByMoonName(moonName);
         if(possibleMoon.isPresent()){
             return possibleMoon.get();
         } else{
@@ -53,7 +53,7 @@ public class MoonService {
     }
 
     public List<Moon> getMoonsFromPlanet(int myPlanetId){
-        List<Moon> possibleMoons = this.moonDao.findMoonsByMyplanetid(myPlanetId);
+        List<Moon> possibleMoons = this.moonDao.findByMyPlanetId(myPlanetId);
         if(possibleMoons.size() != 0){
             return possibleMoons;
         } else{

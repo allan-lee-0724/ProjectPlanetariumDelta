@@ -14,11 +14,11 @@ import com.planetariumbeta.plenetariumbeta.entities.Moon;
 
 public interface MoonDao extends JpaRepository<Moon, Integer> {
     
-    Optional<Moon> findByMoonname(String moonName);
+    Optional<Moon> findByMoonName(String moonName);
     
     @Transactional
     @Query(value = "select * from moons where myplanetid = :myplanetid", nativeQuery = true)
-    List<Moon> findMoonsByMyplanetid(@Param("myplanetid") int myPlanetId);
+    List<Moon> findByMyPlanetId(@Param("myplanetid") int myPlanetId);
 
     @Transactional
     @Modifying
