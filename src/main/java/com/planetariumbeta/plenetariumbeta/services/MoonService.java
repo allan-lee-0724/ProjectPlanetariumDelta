@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.planetariumbeta.plenetariumbeta.entities.Moon;
+import com.planetariumbeta.plenetariumbeta.exceptions.EntityNotFound;
 import com.planetariumbeta.plenetariumbeta.repositories.MoonDao;
 
 @Service
@@ -20,7 +21,7 @@ public class MoonService {
         if(moons.size() != 0){
             return moons;
         } else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
     }
 
@@ -29,7 +30,7 @@ public class MoonService {
         if(possibleMoon.isPresent()){
             return possibleMoon.get();
         } else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
     }
 
@@ -38,7 +39,7 @@ public class MoonService {
         if(possibleMoon.isPresent()){
             return possibleMoon.get();
         } else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
     }
 
@@ -57,7 +58,7 @@ public class MoonService {
         if(possibleMoons.size() != 0){
             return possibleMoons;
         } else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
         
     }

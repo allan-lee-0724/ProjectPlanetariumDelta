@@ -13,14 +13,14 @@ public class LoggingInterceptor implements HandlerInterceptor{
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         MDC.clear();
-        System.out.println("LOGGING INTERCEPTOR AFTERCOMPLETION EXECUTED");
+        
     }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         MDC.put("METHOD", request.getMethod());
         MDC.put("URI", request.getRequestURI());
-        System.out.println("LOGGING INTERCEPTOR PREHANDLE EXECUTED");
+        
 
         return true;
     }

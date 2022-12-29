@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.planetariumbeta.plenetariumbeta.entities.User;
+import com.planetariumbeta.plenetariumbeta.exceptions.EntityNotFound;
 import com.planetariumbeta.plenetariumbeta.repositories.UserDao;
 
 @Service
@@ -19,7 +20,7 @@ public class UserService {
         if(possibleUser.isPresent()){
             return possibleUser.get();
         } else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
         
     }

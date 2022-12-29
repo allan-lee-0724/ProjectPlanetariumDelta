@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.planetariumbeta.plenetariumbeta.entities.Planet;
+import com.planetariumbeta.plenetariumbeta.exceptions.EntityNotFound;
 import com.planetariumbeta.plenetariumbeta.repositories.PlanetDao;
 
 @Service
@@ -20,7 +21,7 @@ public class PlanetService {
         if(planets.size() != 0){
             return planets;
         } else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
     }
 
@@ -29,7 +30,7 @@ public class PlanetService {
         if(possiblePlanet.isPresent()){
             return possiblePlanet.get();
         }else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
     }
 
@@ -38,7 +39,7 @@ public class PlanetService {
         if(possiblePlanet.isPresent()){
             return possiblePlanet.get();
         } else{
-            return null;
+            throw new EntityNotFound("NOT FOUND. PLEASE TRY AGAIN");
         }
     }
 

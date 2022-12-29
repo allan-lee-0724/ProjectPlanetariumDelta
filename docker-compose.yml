@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+
+  planetariumbeta:
+    image: allanlee0724/planetariumbeta:rolling
+    container_name: planetariumbeta
+    ports:
+      - 8080:8080
+    environment:
+      - VARIABLE=VALUE
+    volumes:
+      - ./logs/:/logs/
+
+  loki:
+    image: grafana/loki:latest
+    container_name: planetarium-beta-logging-loki
+    ports:
+      - 3100:3100
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: planetarium-beta-logging-promtail
+    volumes:
+      - ./configs/promtail-config.yml:/etc/promtail/promtail-config.yml
+      - ./logs/rollingFile.log:/var/log/rollingFile.log
+    command: "--config.file=/etc/promtail/promtail-config.yml"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: planetarium-beta-logging-grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - loki
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: planetarium-beta-logging-prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./configs/prometheus-config.yml:/etc/prometheus/prometheus-config.yml
+      - ./configs/prometheus-rules.yml:/etc/prometheus/prometheus-rules.yml
+    command: "--config.file=/etc/prometheus/prometheus-config.yml"

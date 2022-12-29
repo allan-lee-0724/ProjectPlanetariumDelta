@@ -2,6 +2,7 @@ package com.planetariumbeta.plenetariumbeta.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import org.postgresql.util.PSQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,12 @@ public class AuthenticationController {
     
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<String> duplicateUser(DataIntegrityViolationException e){
+        userLogger.error(e.getLocalizedMessage(), e);
+        return new ResponseEntity<>("USERNAME ALREADY IN USE. PLEASE CHANGE YOUR USERNAME", HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(PSQLException.class)
+    public ResponseEntity<String> duplicateUserPSQL(PSQLException e){
         userLogger.error(e.getLocalizedMessage(), e);
         return new ResponseEntity<>("USERNAME ALREADY IN USE. PLEASE CHANGE YOUR USERNAME", HttpStatus.BAD_REQUEST);
     }

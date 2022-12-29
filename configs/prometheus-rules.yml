@@ -1,0 +1,85 @@
+groups:
+- name: alerts
+  rules:
+
+  - alert: AppDown
+    expr: up == 0
+    for: 5m
+    labels:
+      severity: warn
+    annotations:
+      summary: "APPLICATION IS CURRENTLY DOWN"
+      description: "Planetarium Beta is not running"
+
+  - alert: AppDownOvertime
+    expr: up == 0
+    for: 30m
+    labels:
+      severity: critical
+    annotations:
+      summary: "APPLICATION IS CRITICALLY DOWN"
+      description: "Planetarium Beta has been down for over 30 minutes"
+
+  - alert: APIHighLatency:5min
+    expr: sum(rate(http_server_requests_seconds_sum{job="planetariumbeta"}[5m])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[5m])) > 0.2
+    labels:
+      severity: warn
+    annotations:
+      summary: "5-MINUTE LATENCY HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is taking too long to handle requests in the past 5 minutes"
+
+  - alert: APIHighLatency:15min
+    expr: sum(rate(http_server_requests_seconds_sum{job="planetariumbeta"}[15m])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[15m])) > 0.2
+    labels:
+      severity: warn
+    annotations:
+      summary: "10-MINUTE LATENCY HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is taking too long to handle requests in the past 10 minutes"
+
+  - alert: APIHighLatency:30min
+    expr: sum(rate(http_server_requests_seconds_sum{job="planetariumbeta"}[30m])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[30m])) > 0.2
+    labels:
+      severity: warn
+    annotations:
+      summary: "30-MINUTE LATENCY HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is taking too long to handle requests in the past 30 minutes"
+
+  - alert: APIHighLatency:1h
+    expr: sum(rate(http_server_requests_seconds_sum{job="planetariumbeta"}[1h])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[1h])) > 0.2
+    labels:
+      severity: warn
+    annotations:
+      summary: "60-MINUTE LATENCY HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is taking too long to handle requests in the past 1 hour"
+
+  - alert: APILowSuccessRate:5m
+    expr: sum(rate(http_server_requests_seconds_count{job="planetariumbeta", status!="500"}[5m])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[5m])) < 0.998
+    labels:
+      severity: warn
+    annotations:
+      summary: "5-MINUTE ERROR RATE HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is reporting too many 500 status codes in the past 5 minutes"
+
+  - alert: APILowSuccessRate:15m
+    expr: sum(rate(http_server_requests_seconds_count{job="planetariumbeta", status!="500"}[15m])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[15m])) < 0.998
+    labels:
+      severity: warn
+    annotations:
+      summary: "15-MINUTE ERROR RATE HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is reporting too many 500 status codes in the past 15 minutes"
+
+  - alert: APILowSuccessRate:30m
+    expr: sum(rate(http_server_requests_seconds_count{job="planetariumbeta", status!="500"}[30m])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[30m])) < 0.998
+    labels:
+      severity: warn
+    annotations:
+      summary: "30-MINUTE ERROR RATE HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is reporting too many 500 status codes in the past 30 minutes"
+
+  - alert: APILowSuccessRate:1h
+    expr: sum(rate(http_server_requests_seconds_count{job="planetariumbeta", status!="500"}[1h])) / sum(rate(http_server_requests_seconds_count{job="planetariumbeta"}[1h])) < 0.998
+    labels:
+      severity: warn
+    annotations:
+      summary: "60-MINUTE ERROR RATE HIGHER THAN EXPECTED"
+      description: "Planetarium Beta is reporting too many 500 status codes in the past 1 hour"
