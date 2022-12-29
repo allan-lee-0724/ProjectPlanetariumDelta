@@ -22,7 +22,18 @@ public interface MoonDao extends JpaRepository<Moon, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "insert into moons values (default, :name, :myplanetid", nativeQuery = true)
-    void createMoon(@Param("name") String moonName, @Param("myplanetid") int myPlanetId);
+    @Query(value = "insert into moons values (:id, :name, :myplanetid)", nativeQuery = true)
+    void createMoon(@Param("id") int moonId, @Param("name") String moonName, @Param("myplanetid") int myPlanetId);
 
+
+    // @Transactional
+    // @Modifying
+    // @Query(value = "create table moons (id serial primary key, name varchar(20), myplanetid int references planets(id) on delete cascade")
+    // void createMoonsTable();
+
+
+    // @Transactional
+    // @Modifying
+    // @Query(value = "drop table moons cascade")
+    // void dropMoonsTable();
 }

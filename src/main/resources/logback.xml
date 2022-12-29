@@ -1,5 +1,11 @@
 <configuration>
 
+    <appender name = "STDOUT" class = "ch.qos.logback.core.ConsoleAppender" >
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+    
     <appender name = "FILE" class = "ch.qos.logback.core.FileAppender">
         <file>logs/staticLogs.log</file>
         <append>true</append>
@@ -10,8 +16,21 @@
         </encoder>
     </appender>
 
+    <appender name = "ROLLING" class = "ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/rollingFile.log</file>
+        <append>true</append>
+        <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/rollingLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <totalSizeCap>3GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
     <root level = "INFO">
-        <appender-ref ref = "FILE"/>
+        <appender-ref ref = "STDOUT"/>
     </root>
 
 </configuration>

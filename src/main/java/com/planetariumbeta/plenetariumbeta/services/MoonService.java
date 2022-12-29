@@ -43,7 +43,7 @@ public class MoonService {
     }
 
     public String createMoon(Moon moon){
-        this.moonDao.createMoon(moon.getMoonName(), moon.getMyPlanetId());
+        this.moonDao.createMoon(moon.getMoonId(), moon.getMoonName(), moon.getMyPlanetId());
         return "NEW MOON SUCCESSFULLY CREATED";
     }
 
@@ -61,5 +61,15 @@ public class MoonService {
         }
         
     }
+
+    // public String createMoonsTable(){
+    //     this.moonDao.createMoonsTable();
+    //     return "NEW MOONS TABLE SUCCESSFULLY CREATED";
+    // }
+
+    // public String dropMoonsTable(){
+    //     this.moonDao.dropMoonsTable();
+    //     return "MOONS TABLE SUCCESSFULLY DELETED";
+    // }
 
 }

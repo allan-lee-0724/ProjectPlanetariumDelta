@@ -79,6 +79,16 @@ public class PlanetControlller {
         return new ResponseEntity<>(this.planetService.deletePlanetById(myPlanetId), HttpStatus.OK);
     }
 
+    // @PostMapping("api/moons")
+    // public ResponseEntity<String> createPlanetsTable(){
+    //     return new ResponseEntity<>(this.planetService.createPlanetsTable(), HttpStatus.CREATED);
+    // }
+
+    // @DeleteMapping("api/moons")
+    // public ResponseEntity<String> dropPlanetsTable(){
+    //     return new ResponseEntity<>(this.planetService.dropPlanetsTable(), HttpStatus.ACCEPTED);
+    // }
+
     
 
     

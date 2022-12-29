@@ -24,8 +24,8 @@ public class UserService {
         
     }
 
-    public String register(String username, String password){
-       this.userDao.createUser(username, password);
+    public String register(User user){
+       this.userDao.createUser(user.getUsername(), user.getPassword());
        return "NEW USER SUCCESSFULLY CREATED";
     }
 

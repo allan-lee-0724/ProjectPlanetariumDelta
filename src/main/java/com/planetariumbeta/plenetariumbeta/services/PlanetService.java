@@ -43,7 +43,7 @@ public class PlanetService {
     }
 
     public String createPlanet(Planet planet){
-        this.planetDao.createPlanet(planet.getPlanetName(), planet.getOwnerId());
+        this.planetDao.createPlanet(planet.getPlanetId(), planet.getPlanetName(), planet.getOwnerId());
         return "NEW PLANET SUCCESSFULLY CREATED";
     }
 
@@ -51,5 +51,14 @@ public class PlanetService {
         this.planetDao.deleteById(myPlanetId);
         return "PLANET SUCCESSFULLY DELETED";
     }
+    
+    // public String createPlanetsTable(){
+    //     this.planetDao.createPlanetsTable();
+    //     return "NEW PLANETS TABLE SUCCESSFULLY CREATED";
+    // }
 
+    // public String dropPlanetsTable(){
+    //     this.planetDao.dropPlanetsTable();
+    //     return "PLANETS TABLE SUCCESSFULLY DELETED";
+    // }
 }

@@ -75,7 +75,7 @@ public class MoonController {
         return new ResponseEntity<>(this.moonService.createMoon(moon), HttpStatus.OK);
     }
 
-    @DeleteMapping("api/moon/{id}")
+    @DeleteMapping("api/moon/id/{id}")
     public ResponseEntity<String> deleteMoonById(@PathVariable("id") int moonId){
         return new ResponseEntity<>(this.moonService.deleteMoonById(moonId), HttpStatus.OK);
     }
@@ -84,6 +84,16 @@ public class MoonController {
     public ResponseEntity<List<Moon>> getMoonsByPlanetId(@PathVariable("myplanetid") int myPlanetId){
         return new ResponseEntity<>(this.moonService.getMoonsFromPlanet(myPlanetId), HttpStatus.OK);
     }
+    
+    // @PostMapping("api/moons")
+    // public ResponseEntity<String> createMoonsTable(){
+    //     return new ResponseEntity<>(this.moonService.createMoonsTable(), HttpStatus.CREATED);
+    // }
+
+    // @DeleteMapping("api/moons")
+    // public ResponseEntity<String> dropMoonsTable(){
+    //     return new ResponseEntity<>(this.moonService.dropMoonsTable(), HttpStatus.ACCEPTED);
+    // }
     
 
 }
