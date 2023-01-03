@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -121,10 +121,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average success rate within the past 5 minutes",
       "fieldConfig": {
         "defaults": {
@@ -216,10 +213,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average success rate within the past 15 minutes",
       "fieldConfig": {
         "defaults": {
@@ -311,10 +305,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average success rate within the past 30 minutes",
       "fieldConfig": {
         "defaults": {
@@ -406,10 +397,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average success rate within the past 1 hour",
       "fieldConfig": {
         "defaults": {
@@ -514,10 +502,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average latency within the past 5 minutes",
       "fieldConfig": {
         "defaults": {
@@ -560,8 +545,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -609,10 +593,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average latency within the past 15 minutes",
       "fieldConfig": {
         "defaults": {
@@ -655,8 +636,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -704,10 +684,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average latency within the past 30 minutes",
       "fieldConfig": {
         "defaults": {
@@ -750,8 +727,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -799,10 +775,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "ZWph8xtVz"
-      },
+      "datasource": {},
       "description": "This shows the average latency within the past 1 hour",
       "fieldConfig": {
         "defaults": {
@@ -893,6 +866,7 @@
       "type": "timeseries"
     }
   ],
+  "refresh": "30s",
   "schemaVersion": 37,
   "style": "dark",
   "tags": [],
@@ -900,13 +874,13 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Planetarium",
   "uid": "54oUUxtVk",
-  "version": 6,
+  "version": 4,
   "weekStart": ""
 }

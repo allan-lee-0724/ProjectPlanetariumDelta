@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Code500Controller {
     
-    @GetMapping("api/code502")
+    @GetMapping("api/code500")
     public ResponseEntity<String> code500(){
-        return new ResponseEntity<>("CODE 502 REPORTED", HttpStatus.BAD_GATEWAY);
+        return new ResponseEntity<>("CODE 500 REPORTED", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

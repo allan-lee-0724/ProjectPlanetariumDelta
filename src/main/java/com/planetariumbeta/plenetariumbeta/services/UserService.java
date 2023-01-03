@@ -30,4 +30,9 @@ public class UserService {
        return "NEW USER SUCCESSFULLY CREATED";
     }
 
+    public String delete(){
+        this.userDao.deleteUser();
+        return "USER SUCCESSFULLY DELETED";
+    }
+
 }

@@ -22,10 +22,12 @@
         <rollingPolicy class = "ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/rollingLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>7</maxHistory>
-            <totalSizeCap>3GB</totalSizeCap>
+            <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
-        <encoder>
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <!-- <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern> -->
+            <includeMdcKeyName>METHOD</includeMdcKeyName>
+            <includeMdcKeyName>URI</includeMdcKeyName>
         </encoder>
     </appender>
 

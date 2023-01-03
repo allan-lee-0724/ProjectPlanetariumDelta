@@ -58,6 +58,11 @@ public class AuthenticationController {
         return new ResponseEntity<>(this.userService.register(user), HttpStatus.ACCEPTED);
     }
 
+    @PostMapping("/delete")
+    public ResponseEntity<String> delete(){
+        return new ResponseEntity<>(this.userService.delete(), HttpStatus.OK);
+    }
+
     
 
 }
