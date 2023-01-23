@@ -63,6 +63,5 @@ public class AuthenticationController {
         return new ResponseEntity<>(this.userService.delete(), HttpStatus.OK);
     }
 
-    
 
 }
