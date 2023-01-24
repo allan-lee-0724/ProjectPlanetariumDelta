@@ -3,7 +3,7 @@ version: '3'
 services:
 
   planetariumbeta:
-    image: allanlee0724/broken:B1
+    image: allanlee0724/broken:B2
     container_name: broken
     ports:
       - 8080:8080

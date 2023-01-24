@@ -33,50 +33,50 @@ public class PlanetControlller {
     @ExceptionHandler(AuthenticationFailed.class)
     public ResponseEntity<String> authenticationFailed(AuthenticationFailed e){
         planetLogger.error(e.getLocalizedMessage(), e);
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @ExceptionHandler(EntityNotFound.class)
     public ResponseEntity<String> entityNotFound(EntityNotFound e){
         planetLogger.error(e.getLocalizedMessage(), e);
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @ExceptionHandler(PSQLException.class)
     public ResponseEntity<String> sqlIssue(PSQLException e){
         planetLogger.error(e.getLocalizedMessage(), e);
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @ExceptionHandler(EmptyResultDataAccessException.class)
     public ResponseEntity<String> deleteFailed(EmptyResultDataAccessException e){
         planetLogger.error(e.getLocalizedMessage(), e);
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @GetMapping("api/planets")
     public ResponseEntity<List<Planet>> getAllPlanets(){
-        return new ResponseEntity<>(this.planetService.getAllPlanets(), HttpStatus.OK);
+        return new ResponseEntity<>(this.planetService.getAllPlanets(), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @GetMapping("api/planet/{planetName}")
     public ResponseEntity<Planet> getPlanetByName(@PathVariable String planetName){
-        return new ResponseEntity<>(this.planetService.getPlanetByName(planetName), HttpStatus.OK);
+        return new ResponseEntity<>(this.planetService.getPlanetByName(planetName), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @GetMapping("api/planet/id/{myPlanetId}")
     public ResponseEntity<Planet> getPlanetById(@PathVariable int myPlanetId){
-        return new ResponseEntity<>(this.planetService.getPlanetById(myPlanetId), HttpStatus.OK);
+        return new ResponseEntity<>(this.planetService.getPlanetById(myPlanetId), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @PostMapping("api/{ownerId}/planet")
     public ResponseEntity<String> createPlanet(@RequestBody Planet planet, @PathVariable int ownerId){
-        return new ResponseEntity<>(this.planetService.createPlanet(planet), HttpStatus.OK);
+        return new ResponseEntity<>(this.planetService.createPlanet(planet), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     @DeleteMapping("api/planet/{myPlanetId}")
     public ResponseEntity<String> deletePlanetById(@PathVariable int myPlanetId){
-        return new ResponseEntity<>(this.planetService.deletePlanetById(myPlanetId), HttpStatus.OK);
+        return new ResponseEntity<>(this.planetService.deletePlanetById(myPlanetId), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
     }
 
     // @PostMapping("api/moons")

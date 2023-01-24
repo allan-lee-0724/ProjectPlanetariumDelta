@@ -26,6 +26,10 @@ delete the above code
 **Note: the broken "code" could be configurations, xml, etc. Just make sure you show what is broken and how it can be fixed**
 
 # Indicator
-adding these configurations will somehow create an empty session when the traffic gets sent to the cluster, resulting in 500 INTERNAL SERVER ERROR code in all requests
+adding these configurations will somehow create an empty session when the traffic gets sent to the cluster, resulting in 500 INTERNAL SERVER ERROR code in all requests except for register method
+
+![Collection will show 500 for all methods except for register](./Running%20collection.jpg)
+![Loki will show 500 logs for all methods except for register](./Loki%20log.jpg)
+
 
 **Note: make sure your broken app actually returns the expected metrics by deploying it either locally or in your team's cluster**
