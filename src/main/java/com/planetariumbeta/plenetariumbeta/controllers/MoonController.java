@@ -57,32 +57,32 @@ public class MoonController {
 
     @GetMapping("api/moons")
     public ResponseEntity<List<Moon>> getAllMoons(){
-        return new ResponseEntity<>(this.moonService.getAllMoons(), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
+        return new ResponseEntity<>(this.moonService.getAllMoons(), HttpStatus.OK);
     }
 
     @GetMapping("api/moon/{name}")
     public ResponseEntity<Moon> getMoonByName(@PathVariable("name") String moonName){
-        return new ResponseEntity<>(this.moonService.getMoonByName(moonName), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
+        return new ResponseEntity<>(this.moonService.getMoonByName(moonName), HttpStatus.OK);
     }
 
     @GetMapping("api/moon/id/{id}")
     public ResponseEntity<Moon> getMoonById(@PathVariable("id") int moonId){
-        return new ResponseEntity<>(this.moonService.getMoonById(moonId), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
+        return new ResponseEntity<>(this.moonService.getMoonById(moonId), HttpStatus.OK);
     }
 
     @PostMapping("api/{ownerid}/moon")
     public ResponseEntity<String> createMoon(@RequestBody Moon moon, @PathVariable("ownerid") int ownerId) {
-        return new ResponseEntity<>(this.moonService.createMoon(moon), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
+        return new ResponseEntity<>(this.moonService.createMoon(moon), HttpStatus.OK);
     }
 
     @DeleteMapping("api/moon/id/{id}")
     public ResponseEntity<String> deleteMoonById(@PathVariable("id") int moonId){
-        return new ResponseEntity<>(this.moonService.deleteMoonById(moonId), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
+        return new ResponseEntity<>(this.moonService.deleteMoonById(moonId), HttpStatus.OK);
     }
 
     @GetMapping("api/{myplanetid}/moons")
     public ResponseEntity<List<Moon>> getMoonsByPlanetId(@PathVariable("myplanetid") int myPlanetId){
-        return new ResponseEntity<>(this.moonService.getMoonsFromPlanet(myPlanetId), HttpStatus.HTTP_VERSION_NOT_SUPPORTED);
+        return new ResponseEntity<>(this.moonService.getMoonsFromPlanet(myPlanetId), HttpStatus.OK);
     }
     
     // @PostMapping("api/moons")
